@@ -27,7 +27,7 @@ class PosLajuController extends Controller
                 'tracking_num' => 'required',
             ]);
 
-            $tracking_num = $request->tracking_num;
+            $tracking_num = str_replace(' ', '', $request->tracking_num);
             $parsed = $this->fetch_data($tracking_num);
 
         }
