@@ -21,7 +21,7 @@ How to use:
 * where ```trackingNumber``` is your tracking number
 * It will then return a JSON formatted string, you can parse the JSON string and do what you want with it.
 
-Visit: [https://parcel.nazrulwazir.com/](https://semakan.nazrulwazir.com)
+Visit: [https://parcel.nazrulwazir.com/](https://parcel.nazrulwazir.com)
 
 # Credits
 - Laravel PHP Framework - https://laravel.com/docs/5.6/installation
