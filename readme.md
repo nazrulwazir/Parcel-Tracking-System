@@ -25,6 +25,7 @@ Visit: [https://parcel.nazrulwazir.com/](https://semakan.nazrulwazir.com)
 
 # Credits
 - Laravel PHP Framework - https://laravel.com/docs/5.6/installation
+- Material Kit Theme - https://demos.creative-tim.com/material-kit/index.html
 
 # License
 This library is under MIT license, please look at the `LICENSE` file
