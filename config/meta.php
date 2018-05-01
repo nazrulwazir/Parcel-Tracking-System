@@ -2,7 +2,7 @@
 
 return [
     'author'      => env('META_AUTHOR', env('APP_URL')),
-    'keywords'    => env('META_KEYWORDS', "Sistem E Tasmi' Mrsm Balik Pulau , Politeknik Balik Pulau , Nazrul Wazir"),
-    'description' => env('META_DESCRIPTION', 'Sistem Rekod Hafazan Al Quran MRSM Balik Pulau'),
+    'keywords'    => env('META_KEYWORDS', "Pos Laju Tracking System , Pos Laju , Parcel , Nazrul Wazir"),
+    'description' => env('META_DESCRIPTION', 'Pos Laju Tracking System'),
     'title'       => env('META_TITLE', env('APP_URL')),
 ];
