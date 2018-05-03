@@ -1,4 +1,4 @@
-<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
+<nav class="navbar navbar-transparent navbar-absolute" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -14,21 +14,15 @@
             <img src="{{ asset('assets/img/logo.png') }}" alt="Creative Tim Logo">
           </div>
           <div class="brand">
-            {{ config('app.name', "Pos Laju Tracking System") }}
+            {{ config('app.name', "Parcel Tracking System") }}
           </div>
         </div>
       </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-index">
-      <ul  class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#" data-toggle="modal" data-target="#myModal">API</a>
-        </li>
-        <li>
-          <a href="https://github.com/nazrulwazir/Pos-Laju-Tracking-System" target="_blank">Source</a>
-        </li>
-      </ul>
-      </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+      
+     
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>

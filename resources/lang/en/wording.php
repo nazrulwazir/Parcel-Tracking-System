@@ -3,9 +3,11 @@
 return [
 
     'title' => 'Pos Laju Tracking System',
-    'info'  => 'Track all your parcels from Pos Laju Malaysia. Simple and easy!',
+    'info'  => 'Track all your parcels. Simple and easy!',
     'label' => 'Enter tracking numbers here',
+    'label_checkbox' => 'Choose Courier',
     'track_btn' => 'Track Now',
     'track_number' => 'Tracking Number',
     'info_pos' => '*Date/Time shown based on local time when your items was scanned',
+    'description' => 'Track your parcel from Pos Laju , ABX Express , DHL Express , GD Express and SkyNet Express'
 ];

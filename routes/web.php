@@ -17,7 +17,8 @@ Route::group([
     'namespace' => 'Manage',
     'as'        => 'manage.',
 ], function () {
-		Route::any('/', 'PosLajuController@index')->name('index');
-		Route::any('/track', 'PosLajuController@index')->name('index');
+		Route::get('/', 'PosLajuController@index')->name('index');
+		Route::post('/track', 'PosLajuController@index')->name('track.id');
+		Route::get('{parcel_type}/{tracing_num}', 'PosLajuController@track')->name('track');
 });
 

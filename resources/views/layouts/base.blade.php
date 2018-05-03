@@ -47,6 +47,23 @@
 		    background-color: #03a9f4;
 		    color: #ffffff;
 		}
+		.radio input[type=radio]:checked ~ .check {
+		    background-color: #03a9f4;
+		}
+		.radio input[type=radio]:checked ~ .circle {
+		    border-color: #03a9f4;
+		}
+		.logo-container .brand {
+		    font-size: 16px;
+		    color: #FFFFFF;
+		    line-height: 18px;
+		    float: left;
+		    margin-left: 10px;
+		    margin-top: 16px;
+		    width: 186px;
+		    height: 6px;
+		    text-align: left;
+		}
 	</style>
     @stack('styles')
 </head>

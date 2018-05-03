@@ -9,6 +9,8 @@
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="{{ asset('assets/js/material-kit.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+@include('vendor.sweetalert.cdn') 
+@include('vendor.sweetalert.view')
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118442234-1"></script>
 <script>
@@ -18,5 +20,3 @@
 
   gtag('config', 'UA-118442234-1');
 </script>
-@include('vendor.sweetalert.cdn') 
-@include('vendor.sweetalert.view')

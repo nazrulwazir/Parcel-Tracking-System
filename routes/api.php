@@ -10,11 +10,3 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::group([
-    'namespace' => 'Api\Manage',
-    'prefix'    => 'manage',
-    'as'        => 'api.manage.',
-], function () {
-    Route::get('pos-laju-api/{tracking_number}', 'PosLajuController@track')->name('track');
-});

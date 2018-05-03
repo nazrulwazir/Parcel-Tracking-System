@@ -4,15 +4,10 @@ namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class PosLajuController extends Controller
 {
-    private $api_url;
-
-    public function __construct()
-    {
-        $this->api_url = \URL::to('api/manage/pos-laju-api/');
-    }
 
     /**
      * Display a listing of the resource.
@@ -21,32 +16,50 @@ class PosLajuController extends Controller
      */
     public function index(Request $request)
     {
+
         if($request->isMethod('post')){
 
             $request->validate([
                 'tracking_num' => 'required',
+                'parcel_type' => 'required',
             ]);
 
             $tracking_num = str_replace(' ', '', $request->tracking_num);
-            $parsed = $this->fetch_data($tracking_num);
 
+            return redirect()->route('manage.track', [$request->parcel_type,$tracking_num]);
         }
-        return view('Manage.index',compact('parsed','tracking_num'));
+
+        return view('Manage.index',compact('parsed','tracking_num','list_parcel'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function fetch_data($tracking_num){
+    public function track($parcel_type , $tracking_num){
 
-        $url_api = $this->api_url.'/'.$tracking_num;
-        $getdata = file_get_contents($url_api);
+        try {
+            
+            if($parcel_type == 'poslaju'){
+            $parsed = parcel_track()->postLaju();
+            }
+            if($parcel_type == 'gdex'){
+                $parsed = parcel_track()->gdExpress();
+            }
+            if($parcel_type == 'abxExpress'){
+                $parsed = parcel_track()->abxExpress();
+            }
+            if($parcel_type == 'dhlExpress'){
+                $parsed = parcel_track()->dhlExpress();
+            }
+            if($parcel_type == 'skynet'){
+                $parsed = parcel_track()->skynet();
+            }
 
-        return json_decode($getdata,true);
+            $parsed = $parsed->setTrackingNumber($tracking_num)->fetch();
+
+            return view('Manage.result',compact('parsed','tracking_num','parcel_type'));
+
+        } catch (\Exception $e) {
+            
+            return redirect()->route('manage.index')->withErrors(new \Illuminate\Support\MessageBag(['catch_exception'=>$e]));
+        }
     }
-
    
 }
