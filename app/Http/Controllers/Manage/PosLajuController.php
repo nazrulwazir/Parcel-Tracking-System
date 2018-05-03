@@ -41,10 +41,11 @@ class PosLajuController extends Controller
             }
             $parsed = $this->fetch_data($parcel_type,$tracking_num);
 
-            return view('Manage.result',compact('parsed','tracking_num','parcel_type'));
+            $title = array_reverse($parsed['tracker']['checkpoints']) ;
+        
+            return view('Manage.result',compact('parsed','tracking_num','parcel_type','title'));
 
-        } catch (\Exception $e) {
-            
+        } catch (\Exception $e) {            
             return redirect()->route('manage.index')->withErrors(new \Illuminate\Support\MessageBag(['catch_exception'=>$e]));
         }
     }
@@ -60,7 +61,6 @@ class PosLajuController extends Controller
                 }
             }
         }
-
         return redirect()->route('manage.index')->withErrors(['msg' => 'Record Not Found']);
     }
 
@@ -81,10 +81,6 @@ class PosLajuController extends Controller
         if($parcel_type == 'skynet'){
            return parcel_track()->skynet()->setTrackingNumber($tracking_num)->fetch();
         }
-        if($parcel_type == 'unknown'){
-            return $this->check_unknown($tracking_num);
-        }
-
     }
    
 }

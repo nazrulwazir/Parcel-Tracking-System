@@ -9,6 +9,7 @@
 		'parsed' => $parsed,
 		'tracking_num' => $tracking_num,
 		'parcel_type' => $parcel_type,
+		'title'	=> $title,
 		])
 		@endcomponent
 	</div>

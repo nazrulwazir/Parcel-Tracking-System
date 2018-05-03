@@ -13,29 +13,29 @@
 			</div>
 			<h4><b>{{ __('wording.track_number') }}</b></h4>
 			<h4><b>{{ $tracking_num }} </b></h4>
-			<h4><i class="fas fa-truck"></i>  {{ $parsed['tracker']['checkpoints'][0]['process']  or 'Record Not Found'}}</h4>
+			<h4><i class="fas fa-truck"></i>  {{ $title[0]['process'] or 'Record Not Found'}}</h4>
 		</div>
 		<div class=" col-md-8 col-md-offset-2">
 			
 			@if($parsed["code"] == 200 && $parsed['error'] == false)
 			
-			@for($i=0;$i<count($parsed['tracker']['checkpoints']);$i++)
+			@foreach (array_reverse($parsed['tracker']['checkpoints'],true) as $key => $value)
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<h4><p class="text-info">
-						<b>{{ $parsed['tracker']['checkpoints'][$i]['process'] }} </b>
+						<b>{{ $value['process'] }} </b>
 					</p></h4>
 					<span >
 						<button class="btn btn-primary btn-round">
-						<i class="fas fa-location-arrow"></i> {{ $parsed['tracker']['checkpoints'][$i]['event'] }}
+						<i class="fas fa-location-arrow"></i> {{ $value['event'] }}
 						<div class="ripple-container"></div></button>
 					</span>
 					<p class="text">
-						<i class="fas fa-clock"></i> {{ $parsed['tracker']['checkpoints'][$i]['date']}}
+						<i class="fas fa-clock"></i> {{ $value['date']}}
 					</p>
 				</div>
 			</div>
-			@endfor
+			@endforeach
 			
 			@else
 			
