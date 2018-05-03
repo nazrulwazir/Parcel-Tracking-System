@@ -36,23 +36,10 @@ class PosLajuController extends Controller
 
         try {
             
-            if($parcel_type == 'poslaju'){
-            $parsed = parcel_track()->postLaju();
+            if($parcel_type == 'unknown'){
+                return $this->check_unknown($tracking_num);
             }
-            if($parcel_type == 'gdex'){
-                $parsed = parcel_track()->gdExpress();
-            }
-            if($parcel_type == 'abxExpress'){
-                $parsed = parcel_track()->abxExpress();
-            }
-            if($parcel_type == 'dhlExpress'){
-                $parsed = parcel_track()->dhlExpress();
-            }
-            if($parcel_type == 'skynet'){
-                $parsed = parcel_track()->skynet();
-            }
-
-            $parsed = $parsed->setTrackingNumber($tracking_num)->fetch();
+            $parsed = $this->fetch_data($parcel_type,$tracking_num);
 
             return view('Manage.result',compact('parsed','tracking_num','parcel_type'));
 
@@ -60,6 +47,44 @@ class PosLajuController extends Controller
             
             return redirect()->route('manage.index')->withErrors(new \Illuminate\Support\MessageBag(['catch_exception'=>$e]));
         }
+    }
+
+    public function check_unknown($tracking_num){
+
+        foreach (list_parcel() as $key => $value) {
+            
+            if($value['src'] == 1){
+                $track = $this->fetch_data($value['value'] , $tracking_num);
+                if($track['code'] == 200 && $track['error'] == false && $track['tracker']['delivered'] == true){
+                    return redirect()->route('manage.track', [$value['value'],$tracking_num]);
+                }
+            }
+        }
+
+        return redirect()->route('manage.index')->withErrors(['msg' => 'Record Not Found']);
+    }
+
+    public function fetch_data($parcel_type , $tracking_num){
+
+        if($parcel_type == 'poslaju'){
+           return parcel_track()->postLaju()->setTrackingNumber($tracking_num)->fetch();
+        }
+        if($parcel_type == 'gdExpress'){
+            return parcel_track()->gdExpress()->setTrackingNumber($tracking_num)->fetch();
+        }
+        if($parcel_type == 'abxExpress'){
+            return parcel_track()->abxExpress()->setTrackingNumber($tracking_num)->fetch();
+        }
+        if($parcel_type == 'dhlExpress'){
+           return parcel_track()->dhlExpress()->setTrackingNumber($tracking_num)->fetch();
+        }
+        if($parcel_type == 'skynet'){
+           return parcel_track()->skynet()->setTrackingNumber($tracking_num)->fetch();
+        }
+        if($parcel_type == 'unknown'){
+            return $this->check_unknown($tracking_num);
+        }
+
     }
    
 }

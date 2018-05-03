@@ -41,7 +41,9 @@
 <div class="col-md-12 ">
    <div class="customer-logos">
       @foreach(list_parcel() as $value)
-        <div class="slide"><img src="{{ asset('assets/img/'.$value['value'].'.png') }}" ></div>
+        @if($value['src'] == 1)
+         <div class="slide"><img src="{{ asset('assets/img/'.$value['img'].'.png') }}" ></div>
+        @endif
       @endforeach
    </div>
 </div>
