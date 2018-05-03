@@ -22,7 +22,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-index">
       
-     
-        </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
+      <ul  class="nav navbar-nav navbar-right">
+        <li>
+          <a href="mailto:mail@nazrulwazir.com">Report An Issue or Suggestion ?</a>
+        </li>
+      </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
