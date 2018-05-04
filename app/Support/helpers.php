@@ -24,7 +24,7 @@ if (! function_exists('list_parcel')) {
 
 	                '2' => [
 	                        'value' => 'abxExpress',
-	                        'name'  => 'Abx Express (Post Laju Courier)',
+	                        'name'  => 'Abx Express',
 	                        'src'   => '1',
 	                        'img'   => 'abxExpress',
 	                ],
@@ -43,14 +43,21 @@ if (! function_exists('list_parcel')) {
 	                        'img'   => 'skynet',
 	                ],
 
-	                '4' => [
-	                        'value' => 'skynet',
-	                        'name'  => 'SkyNet Express Courier',
+	                '5' => [
+	                        'value' => 'cityLink',
+	                        'name'  => 'City Link Express',
 	                        'src'   => '1',
-	                        'img'   => 'skynet',
+	                        'img'   => 'cityLink',
 	                ],
 
-	                '5' => [
+	                '6' => [
+	                        'value' => 'fedEx',
+	                        'name'  => 'FedEx Express',
+	                        'src'   => '1',
+	                        'img'   => 'fedEx',
+	                ],
+
+	                '7' => [
 	                        'value' => 'unknown',
 	                        'name'  => 'Unknown (Not sure what courier)',
 	                        'src'   => '0',

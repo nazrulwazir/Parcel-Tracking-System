@@ -1,6 +1,5 @@
 <div class="col-md-12 ">
-	<h2 class="text-center"><b> {{ __('wording.info') }} </b></h2>
-	<h5 class="description text-center">{{ __('wording.description') }}</h5>
+	<h2 class="text-center"><b> {{ __('wording.history') }} </b></h2>
 </div>
 <div class="col-md-8 col-md-offset-2 ">
 	@foreach($list_session as $value)

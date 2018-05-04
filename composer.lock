@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "afiqiqmal/parcel-track",
-            "version": "1.4",
+            "version": "1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afiqiqmal/parcel-track.git",
-                "reference": "614b06d6a65222034cfcb47e4052871a4d217b1f"
+                "reference": "b1b5596684a0821a8c68c802d8439897508328d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afiqiqmal/parcel-track/zipball/614b06d6a65222034cfcb47e4052871a4d217b1f",
-                "reference": "614b06d6a65222034cfcb47e4052871a4d217b1f",
+                "url": "https://api.github.com/repos/afiqiqmal/parcel-track/zipball/b1b5596684a0821a8c68c802d8439897508328d3",
+                "reference": "b1b5596684a0821a8c68c802d8439897508328d3",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "parcel",
                 "php"
             ],
-            "time": "2018-05-03T09:15:06+00:00"
+            "time": "2018-05-04T16:12:59+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

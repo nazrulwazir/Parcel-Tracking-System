@@ -34,8 +34,8 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<button class="btn btn-primary btn-raised btn-md btn-block btnSubmit" type="submit">
-					{{ __('wording.track_btn') }}
+					<button class="btn btn-primary btn-raised btn-md btn-block btnSubmit" type="submit"><i class="fas fa-map-marker-alt"></i> 
+					 {{ __('wording.track_btn') }}
 					</button>
 				</div>
 			</div>

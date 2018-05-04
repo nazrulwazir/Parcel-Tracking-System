@@ -92,6 +92,12 @@ class TrackController extends Controller
         if($parcel_type == 'skynet'){
            return parcel_track()->skynet()->setTrackingNumber($tracking_num)->fetch();
         }
+        if($parcel_type == 'cityLink'){
+           return parcel_track()->cityLink()->setTrackingNumber($tracking_num)->fetch();
+        }
+        if($parcel_type == 'fedEx'){
+           return parcel_track()->fedEx()->setTrackingNumber($tracking_num)->fetch();
+        }
     }
 
     public function save_session($data){
