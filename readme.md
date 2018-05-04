@@ -1,9 +1,9 @@
-### Pos Laju Tracking System
+### Parcel Tracking System
 
 # Installation
 - Download or Clone this repository
 ```
-git clone git@github.com:nazrulwazir/Pos-Laju-Tracking-System.git
+git clone git@github.com:nazrulwazir/Parcel-Tracking-System.git
 ```
 - Copy or rename file ```.env.example``` to ```.env```
 -  Open up Command Prompt(CMD) or Terminal in the project directory and run these commands:
@@ -17,10 +17,6 @@ php artisan serve
 ```
 
 How to use:
-* ```http://site.com/api/manage/pos-laju-api/{trackingNumber}```
-* where ```trackingNumber``` is your tracking number
-* It will then return a JSON formatted string, you can parse the JSON string and do what you want with it.
-
 Visit: [https://parcel.nazrulwazir.com/](https://parcel.nazrulwazir.com)
 
 # Credits
