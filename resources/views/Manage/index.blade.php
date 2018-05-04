@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	
-	@if(count($list_session) > 0)
+	@if(!empty($list_session))
 		@component('components.history', [
 			'list_session' => $list_session,
 		])
