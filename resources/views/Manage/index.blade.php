@@ -1,42 +1,37 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="row">
+<div class="row courier-item">
 	@include('components.slider')
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-8 col-md-offset-2 ">
 		
 		{!! Form::open(['route'=>'manage.track.id', 'class' => 'contact-form form' , 'method'=>'POST'] ) !!}
 		<div class="field_wrapper">
-
 			<div class="row">
-
 				<div class="col-md-12">
 					<label class="control-label"><h4><b>{{ __('wording.label_checkbox') }}</b></h4></label>
 					@foreach(list_parcel() as $value)
-						<div class="radio">
-								<label>
-									{{ Form::radio('parcel_type', $value['value'] , '',[
-													'id' => 'parcel_type'
-										]) }}
-									{{ $value['name'] }}
-								</label>
-						</div>
+					<div class="radio">
+						<label>
+							{{ Form::radio('parcel_type', $value['value'] , '',[
+							'id' => 'parcel_type'
+							]) }}
+							{{ $value['name'] }}
+						</label>
+					</div>
 					@endforeach
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group label-floating is-empty">
 						<label class="control-label">{{ __('wording.label') }}</label>
 						{{ Form::text('tracking_num','',[
-									'class' => 'form-control'
-							]) }}
+						'class' => 'form-control'
+						]) }}
 						<span class="material-input"></span></div>
 					</div>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<button class="btn btn-primary btn-raised btn-md btn-block btnSubmit" type="submit">
@@ -47,4 +42,12 @@
 			{!! Form::close() !!}
 		</div>
 	</div>
-	@endsection
+	
+	@if(count($list_session) > 0)
+		@component('components.history', [
+			'list_session' => $list_session,
+		])
+		@endcomponent
+	@endif
+
+@endsection

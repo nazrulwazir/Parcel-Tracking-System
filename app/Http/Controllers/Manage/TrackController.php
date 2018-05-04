@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cache;
+use Session;
 
 class TrackController extends Controller
 {
@@ -17,6 +17,8 @@ class TrackController extends Controller
     public function index(Request $request)
     {
 
+        $list_session = json_decode(json_encode(Session::get('parcel'),FALSE));
+
         if($request->isMethod('post')){
 
             $request->validate([
@@ -25,11 +27,10 @@ class TrackController extends Controller
             ]);
 
             $tracking_num = str_replace(' ', '', $request->tracking_num);
-
             return redirect()->route('manage.track', [$request->parcel_type,$tracking_num]);
         }
 
-        return view('Manage.index',compact('parsed','tracking_num','list_parcel'));
+        return view('Manage.index',compact('parsed','tracking_num','list_parcel','list_session'));
     }
 
     public function track($parcel_type , $tracking_num){
@@ -40,8 +41,18 @@ class TrackController extends Controller
                 return $this->check_unknown($tracking_num);
             }
             $parsed = $this->fetch_data($parcel_type,$tracking_num);
-
             $title = array_reverse($parsed['tracker']['checkpoints']) ;
+
+            if($parsed['code'] == 200 && $parsed['error'] == false && $parsed['tracker']['delivered'] == true){
+
+                $data = [
+                            'info'         => $title[0]['process'],
+                            'parcel_type' => $parcel_type,
+                            'tracking_num' => $tracking_num,
+                        ];
+
+                $this->save_session($data);
+            }
         
             return view('Manage.result',compact('parsed','tracking_num','parcel_type','title'));
 
@@ -81,6 +92,12 @@ class TrackController extends Controller
         if($parcel_type == 'skynet'){
            return parcel_track()->skynet()->setTrackingNumber($tracking_num)->fetch();
         }
+    }
+
+    public function save_session($data){
+
+        session()->put('parcel.' . $data['tracking_num'], $data);
+        return session()->save();
     }
    
 }
