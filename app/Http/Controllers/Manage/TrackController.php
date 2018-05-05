@@ -98,6 +98,9 @@ class TrackController extends Controller
         if($parcel_type == 'fedEx'){
            return parcel_track()->fedEx()->setTrackingNumber($tracking_num)->fetch();
         }
+        if($parcel_type == 'lelExpress'){
+           return parcel_track()->lelExpress()->setTrackingNumber($tracking_num)->fetch();
+        }
     }
 
     public function save_session($data){
