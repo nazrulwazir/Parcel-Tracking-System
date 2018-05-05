@@ -10,14 +10,14 @@ if (! function_exists('list_parcel')) {
         return [
 	                '0' => [
 	                        'value' => 'poslaju',
-	                        'name'  => 'Post Laju Courier',
+	                        'name'  => 'Post Laju',
 	                        'src'   => '1',
 	                        'img'   => 'poslaju',
 	                ],
 
 	                '1' => [
 	                        'value' => 'gdExpress',
-	                        'name'  => 'GD Express Courier',
+	                        'name'  => 'GD Express',
 	                        'src'   => '1',
 	                        'img'   => 'gdExpress',
 	                ],
@@ -31,14 +31,14 @@ if (! function_exists('list_parcel')) {
 
 	                '3' => [
 	                        'value' => 'dhlExpress',
-	                        'name'  => 'DHL Express Courier',
+	                        'name'  => 'DHL Express',
 	                        'src'   => '1',
 	                        'img'   => 'dhlExpress',
 	                ],
 
 	                '4' => [
 	                        'value' => 'skynet',
-	                        'name'  => 'SkyNet Express Courier',
+	                        'name'  => 'SkyNet Express',
 	                        'src'   => '1',
 	                        'img'   => 'skynet',
 	                ],
