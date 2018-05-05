@@ -7,10 +7,10 @@
 		{!! Form::open(['route'=>'manage.track.id', 'class' => 'contact-form form' , 'method'=>'POST'] ) !!}
 		<div class="field_wrapper">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12  {{ $errors->has('parcel_type') ? ' has-error' : '' }}">
 					<label class="control-label"><h4><b>{{ __('wording.label_checkbox') }}</b></h4></label>
 					@foreach(list_parcel() as $value)
-					<div class="radio">
+					<div class="radio {{ $errors->has('parcel_type') ? ' has-error' : '' }}">
 						<label>
 							{{ Form::radio('parcel_type', $value['value'] , '',[
 							'id' => 'parcel_type'
@@ -23,7 +23,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<div class="form-group label-floating is-empty">
+					<div class="form-group label-floating {{ $errors->has('tracking_num') ? 'has-error' : '' }}">
 						<label class="control-label">{{ __('wording.label') }}</label>
 						{{ Form::text('tracking_num','',[
 						'class' => 'form-control'

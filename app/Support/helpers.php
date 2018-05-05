@@ -58,6 +58,13 @@ if (! function_exists('list_parcel')) {
 	                ],
 
 	                '7' => [
+	                        'value' => 'lelExpress',
+	                        'name'  => 'Lazada E-Logistic',
+	                        'src'   => '1',
+	                        'img'   => 'lelExpress',
+	                ],
+
+	                '8' => [
 	                        'value' => 'unknown',
 	                        'name'  => 'Unknown (Not sure what courier)',
 	                        'src'   => '0',

@@ -64,6 +64,9 @@
 		    height: 6px;
 		    text-align: left;
 		}
+		.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+		    color: #f4473a;
+		}
 	</style>
     @stack('styles')
 </head>
