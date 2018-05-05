@@ -1,4 +1,4 @@
-<div class="header header-filter" style="background-image: url({{ asset('assets/img/wall.jpg') }});">
+<div class="header header-filter" style="background-image: url(http://www.lex.com.my/tracker/public/images/bg.jpg);">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">

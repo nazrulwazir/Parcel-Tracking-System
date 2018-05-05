@@ -49,7 +49,7 @@
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('manage.track', [$parcel_type,$tracking_num]) }}" class="social-button "><i class="fab fa-facebook"></i> Facebook </a></li>
 						<li><a href="https://twitter.com/intent/tweet?text=Shipment Status Tracking Result&amp;url={{ route('manage.track', [$parcel_type,$tracking_num]) }}" class="social-button "><i class="fab fa-twitter"></i> Twitter </a></li>
-						<li class="hidden-sm hidden-lg hidden-md"><a href="whatsapp://send?text=Shipment Status Tracking Result {{ $tracking_num }}&amp;{{ route('manage.track', [$parcel_type,$tracking_num]) }}"><i class="fab fa-whatsapp"></i> WhatsApp </a></li>
+						<li class="hidden-sm hidden-lg hidden-md"><a href="whatsapp://send?text=Shipment Status Tracking Result {{ $tracking_num }} : {{ route('manage.track', [$parcel_type,$tracking_num]) }}"><i class="fab fa-whatsapp"></i> WhatsApp </a></li>
 					</ul>
 				</div>
 			</div>
