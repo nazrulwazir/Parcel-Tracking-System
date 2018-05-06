@@ -43,9 +43,9 @@
 		</div>
 	</div>
 	
-	@if(!empty($list_session))
+	@if(!empty($list_cookie))
 		@component('components.history', [
-			'list_session' => $list_session,
+			'list_cookie' => $list_cookie,
 		])
 		@endcomponent
 	@endif

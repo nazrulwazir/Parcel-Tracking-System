@@ -36,7 +36,7 @@
 @endpush
 <div class="col-md-12 ">
       <h2 class="text-center"><b> {{ __('wording.info') }} </b></h2>
-      <h5 class="description text-center">{{ __('wording.description') }}</h5>
+      <h4 class="description text-center">{{ __('wording.description') }}</h4>
    </div>
 <div class="col-md-12 ">
    <div class="customer-logos">

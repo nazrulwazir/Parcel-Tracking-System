@@ -67,12 +67,16 @@
 		.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
 		    color: #f4473a;
 		}
+		a, a:hover, a:focus {
+		    color: #03a9f4;
+		}
 	</style>
     @stack('styles')
 </head>
 
 <body class="components-page">
     @yield('body')
+    @stack('modals')
     @include('components.scripts')
     @stack('scripts')
 </body>

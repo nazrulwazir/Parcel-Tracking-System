@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
+use Cookie;
 
 class TrackController extends Controller
 {
@@ -16,8 +17,7 @@ class TrackController extends Controller
      */
     public function index(Request $request)
     {
-
-        $list_session = json_decode(json_encode(Session::get('parcel'),FALSE));
+        $list_cookie = json_decode(json_encode(Cookie::get('parcel'),FALSE));
 
         if($request->isMethod('post')){
 
@@ -30,7 +30,7 @@ class TrackController extends Controller
             return redirect()->route('manage.track', [$request->parcel_type,$tracking_num]);
         }
 
-        return view('Manage.index',compact('parsed','tracking_num','list_parcel','list_session'));
+        return view('Manage.index',compact('parsed','tracking_num','list_parcel','list_cookie'));
     }
 
     public function track($parcel_type , $tracking_num){
@@ -51,9 +51,9 @@ class TrackController extends Controller
                             'tracking_num' => $tracking_num,
                         ];
 
-                $this->save_session($data);
+                $this->set_cookie($data);
             }
-        
+            
             return view('Manage.result',compact('parsed','tracking_num','parcel_type','title'));
 
         } catch (\Exception $e) {            
@@ -103,10 +103,8 @@ class TrackController extends Controller
         }
     }
 
-    public function save_session($data){
-
-        session()->put('parcel.' . $data['tracking_num'], $data);
-        return session()->save();
+    public function set_cookie($data){
+       return Cookie::queue(Cookie::forever('parcel['.$data['tracking_num'].']', json_encode($data)));
     }
    
 }

@@ -16,6 +16,12 @@
 		)
 	});
 </script>
+
+<script type="text/javascript">
+	$(document).on('click', '.btnSendEmail', function(event) {
+				$('#notification-modal').modal('show');
+			});
+</script>
 @endpush
 @push('styles')
 <style type="text/css">
@@ -28,6 +34,10 @@
 	}
 </style>
 @endpush
+@push('modals')
+	@include('Manage.modals.notification')
+@endpush
+
 <div class="col-md-8 col-md-offset-2">
 	<br/><br/><br/>
 	<div class="card card-signup">
@@ -38,7 +48,12 @@
 			<h4><b>{{ $tracking_num }} </b></h4>
 			<h4><i class="fas fa-truck"></i>  {{ $title[0]['process'] or 'Record Not Found'}}</h4>
 			<div>
-				<button class="btn btn-warning btn-sm btnSendEmail" title="" data-toggle="tooltip" data-original-title="Send Email To Receiver"> <i class="fas fa-bell"></i> Notification</button>
+				@include('components.modals.button', [
+					'modal_btn_classes' => 'btnSendEmail',
+					'label' => 'Notification',
+					'icon' => 'fas fa-bell',
+					'tooltip' => 'Send Email To Receiver',
+				])
 				<button class="btn btn-warning btn-sm btnCopy" title="" data-toggle="tooltip" data-original-title="Copy URL" onclick="copyToClipboard('#copy-text')"> <i class="fas fa-link"></i> Copy </button>
 				<div id="copy-text" hidden>{{ route('manage.track', [$parcel_type,$tracking_num]) }}</div>
 				<button class="btn btn-warning btn-sm" title="" data-toggle="tooltip" data-original-title="Save or Print"> <i class="fas fa-print"></i> Print </button>
@@ -58,26 +73,19 @@
 			
 			@if($parsed["code"] == 200 && $parsed['error'] == false)
 			
-			@foreach (array_reverse($parsed['tracker']['checkpoints'],true) as $key => $value)
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<h4><p class="text-info">
-						<b>{{ $value['process'] }} </b>
-					</p></h4>
-					<span >
-						<button class="btn btn-primary btn-round">
-						<i class="fas fa-location-arrow"></i> {{ $value['event'] }}
-						<div class="ripple-container"></div></button>
-					</span>
-					<p class="text">
-						<i class="fas fa-clock"></i> {{ $value['date']}}
-					</p>
+				@foreach (array_reverse($parsed['tracker']['checkpoints'],true) as $key => $value)
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h4><p class="text-default">
+							<b>{{ $value['process'] }} </b>@if($key === key(array_reverse($parsed['tracker']['checkpoints'],true))) <span class="label label-warning"> Latest</span> @endif
+						</p></h4>
+						<span class="label label-info"><i class="fas fa-location-arrow"></i> {{ $value['event'] }}</span><br/><br/>
+						<span class="label label-default"><i class="fas fa-clock"></i> {{ $value['date']}}</span>
+						
+					</div>
 				</div>
-			</div>
-			@endforeach
-			
-			@else
-			
+				@endforeach
+				
 			@endif
 		</div>
 	</div>

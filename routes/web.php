@@ -22,3 +22,7 @@ Route::group([
 		Route::get('{parcel_type}/{tracing_num}', 'TrackController@track')->name('track');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
