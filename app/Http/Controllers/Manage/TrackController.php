@@ -43,6 +43,8 @@ class TrackController extends Controller
             $parsed = $this->fetch_data($parcel_type,$tracking_num);
             $title = array_reverse($parsed['tracker']['checkpoints']) ;
 
+            // dd(json_encode($title[0]));
+
             if($parsed['code'] == 200 && $parsed['error'] == false && $parsed['tracker']['delivered'] == true){
 
                 $data = [

@@ -1,9 +1,11 @@
-{!! Form::open(['route'=>'manage.track.id', 'class' => 'contact-form form' , 'method'=>'POST'] ) !!}
+{!! Form::open(['route'=>'manage.notification.store', 'class' => 'notification' , 'id'=> 'notification-form' , 'method'=>'POST'] ) !!}
 <div class="field_wrapper">
 	
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group label-floating  is-empty">
+				{{ Form::hidden('tracking_num', $tracking_num) }}
+				{{ Form::hidden('parcel_type', $parcel_type) }}
 				<label class="control-label">Enter Sender Name</label>
 				{{ Form::text('sender_name','',[
 						'class' => 'form-control',
@@ -23,7 +25,7 @@
 
 			<div class="form-group label-floating  is-empty">
 				<label class="control-label">Enter Receiver Name</label>
-				{{ Form::email('receiver_name','',[
+				{{ Form::text('receiver_name','',[
 						'class' => 'form-control',
 						'id' 	=> 'receiver_name',
 				]) }}

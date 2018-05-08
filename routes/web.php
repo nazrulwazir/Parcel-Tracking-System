@@ -12,7 +12,7 @@
 */
 
 
-
+Auth::routes();
 Route::group([
     'namespace' => 'Manage',
     'as'        => 'manage.',
@@ -20,9 +20,19 @@ Route::group([
 		Route::get('/', 'TrackController@index')->name('index');
 		Route::post('/track', 'TrackController@index')->name('track.id');
 		Route::get('{parcel_type}/{tracing_num}', 'TrackController@track')->name('track');
+		Route::resource('notification', 'NotificationController')->except('index','show','update','index','edit','create', 'destroy');
 });
 
+Route::get('/test', function()
+{
+	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+	$test = 'test';
+    $beautymail->send('Manage.email.notification', ['test' => $test], function($message)
+    {
+        $message
+			->from('etasmiq@gmail.com')
+			->to('nazrulhakimwazir@gmail.com', 'John Smith')
+			->subject('Welcome!');
+    });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+});
