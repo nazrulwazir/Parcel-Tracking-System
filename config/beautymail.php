@@ -24,9 +24,9 @@ return [
         'address'     => 'https://parcel.nazrulwazir.com',
 
         'logo'        => [
-            'path'   => 'https://i.pinimg.com/originals/1a/cd/50/1acd50d4d40ddb79706cf53b255bfbb6.jpg',
-            'width'  => '10',
-            'height' => '10',
+            'path'   => 'https://parcel.nazrulwazir.com/assets/img/parcel.png',
+            'width'  => '50',
+            'height' => '',
         ],
 
         'twitter'  => 'https://twitter.com/nazrulwazir',

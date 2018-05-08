@@ -9,7 +9,6 @@ use Snowfire\Beautymail\Beautymail;
 
 class NotificationController extends TrackController
 {
-    const SEND = 1;
 
     /**
      * Store a newly created resource in storage.
@@ -24,7 +23,7 @@ class NotificationController extends TrackController
                 'sender_email' => 'required',
                 'receiver_name' => 'required',
                 'receiver_email' => 'required',
-                // 'g-recaptcha-response' => 'required|captcha',
+                'g-recaptcha-response' => 'required|captcha',
         ]);
 
         $parsed = $this->fetch_data($request->parcel_type,$request->tracking_num);
@@ -60,7 +59,7 @@ class NotificationController extends TrackController
         $beautymail = app(Beautymail::class);
         $data = Notification::findOrFail($id);
         $status = json_decode($data->data);
-        
+
         $beautymail->send('Manage.email.notification', ['data' => $data , 'status' => $status], function($message) use ($data)
         {
             $message

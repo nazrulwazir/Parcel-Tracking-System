@@ -29,7 +29,7 @@
 		       		swal.close();
 		       		swal('Okay',response.data.message,'success');
 		       		$('#notification-modal').modal('hide');
-		       		// $('#notification-form').find('input[type=text], input[type=password], input[type=email], textarea').val('');
+		       		$('#notification-form').find('input[type=text], input[type=password], input[type=email], textarea').val('');
 		       })
 		       .catch(error => {
 		        	swal.close();
