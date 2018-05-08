@@ -23,8 +23,8 @@
     <div class="collapse navbar-collapse" id="navigation-index">
       
       <ul  class="nav navbar-nav navbar-right">
-        <li><a href=""> Login</a></li>
-        <li><a href=""> Register</a></li>
+        {{-- <li><a href=""> Login</a></li>
+        <li><a href=""> Register</a></li> --}}
         <li>
           <a href="mailto:mail@nazrulwazir.com">Report An Issue or Suggestion ?</a>
         </li>
