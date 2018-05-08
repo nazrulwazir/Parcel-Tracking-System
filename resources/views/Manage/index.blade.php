@@ -68,8 +68,6 @@
 
 		      axios.post(jqf.attr('action'), jqf.serialize())
 		       .then(response => {
-		       		swal.close();
-		       		swal('Okay','Redirect..','success');
 		       		window.location.href = response.data.message;
 		       })
 		       .catch(error => {
