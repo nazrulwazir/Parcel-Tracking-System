@@ -27,7 +27,7 @@ class TrackController extends Controller
             ]);
 
             $tracking_num = str_replace(' ', '', $request->tracking_num);
-            return redirect()->route('manage.track', [$request->parcel_type,$tracking_num]);
+            return response()->json(['message'=>route('manage.track', [$request->parcel_type,$tracking_num]),'errors'=>'']);
         }
 
         return view('Manage.index',compact('parsed','tracking_num','list_parcel','list_cookie'));
