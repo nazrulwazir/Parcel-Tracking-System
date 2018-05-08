@@ -63,7 +63,7 @@ class NotificationController extends TrackController
         $beautymail->send('Manage.email.notification', ['data' => $data , 'status' => $status], function($message) use ($data)
         {
             $message
-                ->from('no-reply@parceltrackingsystem.com')
+                ->from(env('MAIL_USERNAME'))
                 ->to($data->receiver_email, $data->receiver_email)
                 ->cc($data->sender_email)
                 ->subject('Shipment Status Tracking Result');
