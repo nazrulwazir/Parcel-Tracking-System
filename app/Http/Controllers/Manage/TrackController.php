@@ -41,9 +41,7 @@ class TrackController extends Controller
                 return $this->check_unknown($tracking_num);
             }
             $parsed = $this->fetch_data($parcel_type,$tracking_num);
-            $title = array_reverse($parsed['tracker']['checkpoints']) ;
-
-            // dd(json_encode($title[0]));
+            $title = array_reverse($parsed['tracker']['checkpoints']);
 
             if($parsed['code'] == 200 && $parsed['error'] == false && $parsed['tracker']['delivered'] == true){
 
@@ -51,6 +49,7 @@ class TrackController extends Controller
                             'info'         => $title[0]['process'],
                             'parcel_type' => $parcel_type,
                             'tracking_num' => $tracking_num,
+                            'date'          => $title[0]['date'],
                         ];
 
                 $this->set_cookie($data);

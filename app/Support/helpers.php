@@ -74,3 +74,14 @@ if (! function_exists('list_parcel')) {
 	            ];
     }
 }
+
+/*
+ * Date Format
+ * @return date format
+ */
+if (! function_exists('date_conventer')) {
+    function date_conventer($date)
+    {	
+    	return date('d M Y , h:i:s A', strtotime($date));
+    }
+}

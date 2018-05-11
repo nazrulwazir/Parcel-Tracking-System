@@ -79,7 +79,6 @@
 						var inputError = [];
 						
 		        		$.each(error.response.data.errors,function(key, data){
-		                   	console.log(key);
 		                    if($("input[name='"+key+"']").is(':radio') || $("input[name='"+key+"']").is(':checkbox')){
 		                        var input = $("input[name='"+key+"']");
 		                    } else {

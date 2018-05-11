@@ -80,7 +80,7 @@
 							<b>{{ $value['process'] }} </b>@if($key === key(array_reverse($parsed['tracker']['checkpoints'],true))) <span class="label label-warning"> Latest</span> @endif
 						</p></h4>
 						<span class="label label-info"><i class="fas fa-location-arrow"></i> {{ $value['event'] }}</span><br/><br/>
-						<span class="label label-default"><i class="fas fa-clock"></i> {{ $value['date']}}</span>
+						<span class="label label-default"><i class="fas fa-clock"></i> {{ date_conventer($value['date']) }} </span>
 						
 					</div>
 				</div>

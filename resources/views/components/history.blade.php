@@ -14,7 +14,8 @@
 				<span aria-hidden="true"><i class="material-icons">clear</i></span>
 				</button>
 				<span aria-hidden="true"><div style="vertical-align: top;"> <img src="{{ asset('assets/img/'.$data['parcel_type'].'.png') }}" style=" border: 2px solid #eee; border-radius: 5px; height: 95px;"> </div></span><br/>
-				{{ $data['tracking_num'] }}<br/> <b>{{ $data['info'] }}</b>
+				<span aria-hidden="true"><i class="fas fa-archive"></i> {{ $data['tracking_num'] }}<br/> <i class="fas fa-truck"></i> <b>{{ $data['info'] }}</b><br/></span>
+				<span aria-hidden="true"><i class="fas fa-clock"></i> {{ isset($data['date']) ? date_conventer($data['date']) : ''}}</span>
 			</div></a>
 		</div></div>
 		@endforeach
